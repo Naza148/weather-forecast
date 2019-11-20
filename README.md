@@ -1,7 +1,8 @@
 Weather forecast service
-=======
-###Example API request:
-* #####GET /forecast?city=London
+===
+Example API request:
+---
+* GET /forecast?city=London
 Response:
 ```json
 {
