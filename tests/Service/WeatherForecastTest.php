@@ -10,13 +10,13 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class WeatherForecastTest extends TestCase
 {
-    protected const TEST_PATH = './Data/';
+    protected const DATA_PATH = __DIR__ . '/../Data/';
 
     public function testGetForecast(): void
     {
-        $testOkResponseContent = file_get_contents(self::TEST_PATH . 'weather_response_ok.txt');
+        $testOkResponseContent = file_get_contents(self::DATA_PATH . 'weather_response_ok.txt');
         $testOkResponse = new MockResponse($testOkResponseContent);
-        $testFailResponseContent = file_get_contents(self::TEST_PATH . 'weather_response_fail.txt');
+        $testFailResponseContent = file_get_contents(self::DATA_PATH . 'weather_response_fail.txt');
         $testFailResponse = new MockResponse($testFailResponseContent);
 
         $httpClient = new MockHttpClient([$testOkResponse, $testFailResponse]);

@@ -15,4 +15,14 @@ class WeatherControllerTest extends WebTestCase
 
         $this->assertEquals(200, $response->getStatusCode());
     }
+
+    public function testForecastError(): void
+    {
+        $client = self::createClient();
+        $client->request('GET', '/forecast');
+
+        $response = $client->getResponse();
+
+        $this->assertEquals(400, $response->getStatusCode());
+    }
 }

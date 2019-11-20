@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\WeatherForecast;
+use App\Service\WeatherForecastInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,10 +24,10 @@ class WeatherController extends AbstractController
      * @Route("/forecast", methods={"GET"})
      *
      * @param Request $request
-     * @param WeatherForecast $weatherForecast
+     * @param WeatherForecastInterface $weatherForecast
      * @return Response
      */
-    public function forecast(Request $request, WeatherForecast $weatherForecast): Response
+    public function forecast(Request $request, WeatherForecastInterface $weatherForecast): Response
     {
         $city = $request->query->get('city');
         if ($city === null || !$city) {
